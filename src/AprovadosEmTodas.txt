@@ -1,0 +1,7 @@
+Alunos aprovados em todas as disciplinas:
+ID: 101 Notas: [85, 78, 92, 88]
+ID: 103 Notas: [90, 85, 87, 90]
+ID: 105 Notas: [75, 80, 70, 78]
+ID: 106 Notas: [88, 85, 90, 93]
+ID: 108 Notas: [77, 79, 75, 80]
+ID: 109 Notas: [95, 92, 94, 96]

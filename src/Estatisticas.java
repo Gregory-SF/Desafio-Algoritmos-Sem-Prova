@@ -36,7 +36,7 @@ public class Estatisticas {
     }
 
     public void classificarAlunosPorDisciplina(List<Aluno> alunos) throws IOException {
-        Path pathAprovadosReprovados = Path.of("C:\\Users\\conta\\IdeaProjects\\VideoLerCriarDeletarTXT\\src\\Aprovados-Reprovados.txt");
+        Path pathAprovadosReprovados = Path.of("C:\\Users\\conta\\IdeaProjects\\VideoLerCriarDeletarTXT\\src\\QuantidadeAprovadosReprovadosPorDisciplina.txt");
 
         if(Files.notExists(pathAprovadosReprovados)){
             Files.createFile(pathAprovadosReprovados);
@@ -73,6 +73,34 @@ public class Estatisticas {
                                         reprovadosDisciplina1, reprovadosDisciplina2, reprovadosDisciplina3, reprovadosDisciplina4);
 
         Files.writeString(pathAprovadosReprovados, conteudo);
+    }
+
+    public void classificarAlunosPorResultado(List<Aluno> alunos) throws IOException {
+        Path pathAprovadosEmTodas = Path.of("C:\\Users\\conta\\IdeaProjects\\VideoLerCriarDeletarTXT\\src\\AprovadosEmTodas.txt");
+        Path pathComReprovacoes = Path.of("C:\\Users\\conta\\IdeaProjects\\VideoLerCriarDeletarTXT\\src\\ComReprova.txt");
+
+        if(Files.notExists(pathAprovadosEmTodas)){
+            Files.createFile(pathAprovadosEmTodas);
+        }
+
+        if(Files.notExists(pathComReprovacoes)){
+            Files.createFile(pathComReprovacoes);
+        }
+
+        StringBuilder conteudoAprovados = new StringBuilder("Alunos aprovados em todas as disciplinas:\n");
+        StringBuilder conteudoReprovados = new StringBuilder("Alunos com reprova em uma ou mais disciplinas:\n");
+
+        for (Aluno aluno : alunos) {
+            boolean aprovadoEmTodas = aluno.notas.stream().allMatch(nota -> nota >= 70);
+            if (aprovadoEmTodas) {
+                conteudoAprovados.append("ID: ").append(aluno.id).append(" Notas: ").append(aluno.notas).append("\n");
+            } else {
+                conteudoReprovados.append("ID: ").append(aluno.id).append(" Notas: ").append(aluno.notas).append("\n");
+            }
+        }
+
+        Files.writeString(pathAprovadosEmTodas, conteudoAprovados.toString());
+        Files.writeString(pathComReprovacoes, conteudoReprovados.toString());
     }
 
     public void calcularMediaMedianaDesvioGeral(List<Aluno> alunos) throws IOException {
