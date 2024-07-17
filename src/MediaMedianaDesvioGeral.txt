@@ -1,0 +1,5 @@
+Média, Mediana e Desvio Padrão, Geral todos os anos: 
+Media1: 76.3 | Mediana1: 76.0 | Desvio Padrão: 12.570202862324855
+Media2: 75.9 | Mediana2: 78.5 | Desvio Padrão: 9.994498486667553
+Media3: 76.1 | Mediana3: 73.5 | Desvio Padrão: 13.110682667199296
+Media4: 79.8 | Mediana4: 79.0 | Desvio Padrão: 11.142710621747295

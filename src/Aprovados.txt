@@ -1,0 +1,8 @@
+Alunos aprovados: 
+ID: 101 Notas: [85, 78, 92, 88] Media: 85.75
+ID: 103 Notas: [90, 85, 87, 90] Media: 88.0
+ID: 105 Notas: [75, 80, 70, 78] Media: 75.75
+ID: 106 Notas: [88, 85, 90, 93] Media: 89.0
+ID: 108 Notas: [77, 79, 75, 80] Media: 77.75
+ID: 109 Notas: [95, 92, 94, 96] Media: 94.25
+ID: 110 Notas: [68, 70, 72, 74] Media: 71.0
