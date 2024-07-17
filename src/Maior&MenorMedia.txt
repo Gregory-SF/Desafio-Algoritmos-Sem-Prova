@@ -1,3 +1,5 @@
-Aluno com maior média: 109 Notas: [95, 92, 94, 96] Media: 94.25
+Aluno com maior média:
+ID: 109 | Notas: [95, 92, 94, 96] | Media: 94.25
 ----------------------------------------------------------------------------------------
-Aluno com menor média: 107 Notas: [55, 60, 58, 62] Media: 58.75
+Aluno com menor média:
+ID: 107 | Notas: [55, 60, 58, 62] | Media: 58.75

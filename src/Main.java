@@ -18,8 +18,9 @@ public class Main {
 
         Estatisticas estatisticas = new Estatisticas();
         estatisticas.calcularMaiorMenorMedia(alunos);
-        estatisticas.aprovados(alunos);
-        estatisticas.reprovados(alunos);
+        estatisticas.classificarAlunosPorDisciplina(alunos);
+//        estatisticas.aprovados(alunos);
+//        estatisticas.reprovados(alunos);
         estatisticas.calcularMediaMedianaDesvioGeral(alunos);
         estatisticas.calcularMediaMedianaDesvioPorAno(alunos);
     }

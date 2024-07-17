@@ -28,43 +28,51 @@ public class Estatisticas {
                 alunoComMenorMedia = aluno;
             }
         }
-        String conteudo = "Aluno com maior média: " + alunoComMaiorMedia.id + " Notas: " + alunoComMaiorMedia.notas + " Media: " + alunoComMaiorMedia.calcularMedia() + "\n" +
+        String conteudo = "Aluno com maior média:\nID: " + alunoComMaiorMedia.id + " | Notas: " + alunoComMaiorMedia.notas + " | Media: " + alunoComMaiorMedia.calcularMedia() + "\n" +
                             "----------------------------------------------------------------------------------------" + "\n" +
-                          "Aluno com menor média: " + alunoComMenorMedia.id + " Notas: " + alunoComMenorMedia.notas + " Media: " + alunoComMenorMedia.calcularMedia();
+                          "Aluno com menor média:\nID: " + alunoComMenorMedia.id + " | Notas: " + alunoComMenorMedia.notas + " | Media: " + alunoComMenorMedia.calcularMedia();
 
         Files.writeString(path, conteudo);
     }
 
-    public void aprovados(List<Aluno> alunos) throws IOException {
-        Path path = Path.of("C:\\Users\\conta\\IdeaProjects\\VideoLerCriarDeletarTXT\\src\\Aprovados.txt");
-        if(Files.notExists(path)){
-            Files.createFile(path);
+    public void classificarAlunosPorDisciplina(List<Aluno> alunos) throws IOException {
+        Path pathAprovadosReprovados = Path.of("C:\\Users\\conta\\IdeaProjects\\VideoLerCriarDeletarTXT\\src\\Aprovados-Reprovados.txt");
+
+        if(Files.notExists(pathAprovadosReprovados)){
+            Files.createFile(pathAprovadosReprovados);
         }
 
-        String conteudo = "Alunos aprovados: \n";
+        int quantidadeTotalDeAlunos = alunos.size();
+        int aprovadosDisciplina1 = 0, aprovadosDisciplina2 = 0, aprovadosDisciplina3 = 0, aprovadosDisciplina4 = 0;
+        int reprovadosDisciplina1 = 0, reprovadosDisciplina2 = 0, reprovadosDisciplina3 = 0, reprovadosDisciplina4 = 0;
+
         for (Aluno aluno : alunos) {
-            if (aluno.calcularMedia() >= 70) {
-                conteudo += "ID: " + aluno.id + " Notas: " + aluno.notas + " Media: " + aluno.calcularMedia() + "\n";
+            for (int i = 0; i < aluno.notas.size(); i++) {
+                if (aluno.notas.get(i) >= 70) {
+                    switch (i) {
+                        case 0 -> aprovadosDisciplina1++;
+                        case 1 -> aprovadosDisciplina2++;
+                        case 2 -> aprovadosDisciplina3++;
+                        case 3 -> aprovadosDisciplina4++;
+                    }
+                } else {
+                    switch (i) {
+                        case 0 -> reprovadosDisciplina1++;
+                        case 1 -> reprovadosDisciplina2++;
+                        case 2 -> reprovadosDisciplina3++;
+                        case 3 -> reprovadosDisciplina4++;
+                    }
+                }
             }
         }
+        String conteudo = String.format("Quantidade total de alunos: %d\n-------------------------------------------------------\n" +
+                                        "Quantidade de alunos aprovados e reprovados por disciplina: \n-------------------------------------------------------\n" +
+                                        "Foram aprovados:\n %d alunos na disciplina 1.\n %d alunos na disciplina 2.\n %d alunos na disciplina 3.\n %d alunos na disciplina 4.\n-------------------------------------------------------\n" +
+                                        "Foram reprovados:\n %d alunos na disciplina 1.\n %d alunos na disciplina 2.\n %d alunos na disciplina 3.\n %d alunos na disciplina 4.\n-------------------------------------------------------\n",
+                                        quantidadeTotalDeAlunos, aprovadosDisciplina1, aprovadosDisciplina2, aprovadosDisciplina3, aprovadosDisciplina4,
+                                        reprovadosDisciplina1, reprovadosDisciplina2, reprovadosDisciplina3, reprovadosDisciplina4);
 
-        Files.writeString(path, conteudo);
-    }
-
-    public void reprovados(List<Aluno> alunos) throws IOException {
-        Path path = Path.of("C:\\Users\\conta\\IdeaProjects\\VideoLerCriarDeletarTXT\\src\\Reprovados.txt");
-        if(Files.notExists(path)){
-            Files.createFile(path);
-        }
-
-        String conteudo = "Alunos reprovados: \n";
-        for (Aluno aluno : alunos) {
-            if (aluno.calcularMedia() < 70) {
-                conteudo += "ID: " + aluno.id + " Notas: " + aluno.notas + " Media: " + aluno.calcularMedia() + "\n";
-            }
-        }
-
-        Files.writeString(path, conteudo);
+        Files.writeString(pathAprovadosReprovados, conteudo);
     }
 
     public void calcularMediaMedianaDesvioGeral(List<Aluno> alunos) throws IOException {
@@ -118,7 +126,8 @@ public class Estatisticas {
         double desvioPadrao3 = calcularDesvioPadrao(mediana3, media3);
         double desvioPadrao4 = calcularDesvioPadrao(mediana4, media4);
 
-        String conteudo = "Média, Mediana e Desvio Padrão, Geral todos os anos: \n" +
+        String conteudo = "Todos os Anos: \n" +
+                          "Média, Mediana e Desvio Padrão: \n" +
                           "Media1: " + media1 + " | Mediana1: " + resMediana1 + " | Desvio Padrão: " + desvioPadrao1 + "\n" +
                           "Media2: " + media2 + " | Mediana2: " + resMediana2 + " | Desvio Padrão: " + desvioPadrao2 + "\n" +
                           "Media3: " + media3 + " | Mediana3: " + resMediana3 + " | Desvio Padrão: " + desvioPadrao3 + "\n" +

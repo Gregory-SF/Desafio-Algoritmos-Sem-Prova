@@ -1,4 +1,0 @@
-Alunos reprovados: 
-ID: 102 Notas: [70, 68, 65, 72] Media: 68.75
-ID: 104 Notas: [60, 62, 58, 65] Media: 61.25
-ID: 107 Notas: [55, 60, 58, 62] Media: 58.75
