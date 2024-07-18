@@ -6,7 +6,7 @@ public class Aluno{
     List<Integer> notas = new ArrayList<>();
 
     public Aluno(String dados){
-        String[] partes = dados.split(", ");
+        String[] partes = dados.split(",");
         this.id = Integer.parseInt(partes[0]);
         for(int i = 1; i <= 4; i++){
             this.notas.add(Integer.parseInt(partes[i]));
