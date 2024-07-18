@@ -1,5 +1,0 @@
-Alunos com reprova em uma ou mais disciplinas:
-ID: 102 Notas: [70, 68, 65, 72]
-ID: 104 Notas: [60, 62, 58, 65]
-ID: 107 Notas: [55, 60, 58, 62]
-ID: 110 Notas: [68, 70, 72, 74]
