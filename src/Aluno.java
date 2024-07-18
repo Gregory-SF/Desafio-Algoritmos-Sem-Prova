@@ -5,13 +5,13 @@ public class Aluno{
     int id, ano;
     List<Integer> notas = new ArrayList<>();
 
-    public Aluno(String dados) {
-        String[] partes = dados.split(",");
+    public Aluno(String dados){
+        String[] partes = dados.split(", ");
         this.id = Integer.parseInt(partes[0]);
-        for (int i = 1; i < partes.length - 1; i++) {
+        for(int i = 1; i <= 4; i++){
             this.notas.add(Integer.parseInt(partes[i]));
         }
-        this.ano = Integer.parseInt(partes[partes.length - 1]);
+        this.ano = Integer.parseInt(partes[4]);
     }
 
     public double calcularMedia(){
